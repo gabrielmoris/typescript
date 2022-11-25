@@ -1,0 +1,21 @@
+// {
+//   "compilerOptions": {
+//     "module": "commonjs",
+//     "noImplicitAny": true,
+//     "removeComments": true,
+//     "preserveConstEnums": true,
+//     "sourceMap": false
+//     //   "files": ["/"]
+//   }
+// }
+
+{
+  "compilerOptions": {
+    "module": "system",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "outFile": "./built/tsc.js",
+    "sourceMap": true
+  }
+}

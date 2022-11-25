@@ -1,0 +1,23 @@
+{
+  "name": "npm",
+  "version": "1.0.0",
+  "description": "TypeScript learning",
+  "main": "intro.js",
+  "scripts": {
+    "compile": "tsc",
+    "start": "node ./built/tsc.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabrielmoris/typescript.git"
+  },
+  "keywords": [
+    "typescript"
+  ],
+  "author": "Gabrielcmoris",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gabrielmoris/typescript/issues"
+  },
+  "homepage": "https://github.com/gabrielmoris/typescript#readme"
+}
