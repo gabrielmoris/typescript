@@ -17,5 +17,9 @@
     "preserveConstEnums": true,
     "outFile": "./built/tsc.js",
     "sourceMap": true
-  }
+  },
+  //Paths I want to compile
+  "include": ["basic/*"],
+  //Paths I don't want to compile
+  "exclude": ["node_modules", "**/*.spec.ts"]
 }
