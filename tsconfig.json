@@ -19,7 +19,7 @@
     "sourceMap": true
   },
   //Paths I want to compile
-  "include": ["basic/*"],
+  "include": ["basic/*", "mid/*"],
   //Paths I don't want to compile
   "exclude": ["node_modules", "**/*.spec.ts"]
 }
