@@ -1,13 +1,4 @@
-// {
-//   "compilerOptions": {
-//     "module": "commonjs",
-//     "noImplicitAny": true,
-//     "removeComments": true,
-//     "preserveConstEnums": true,
-//     "sourceMap": false
-//     //   "files": ["/"]
-//   }
-// }
+//1. create file: in command line tsc --init
 
 {
   "compilerOptions": {
