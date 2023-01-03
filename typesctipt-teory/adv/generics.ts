@@ -29,3 +29,20 @@ interface Bottle {
 }
 
 identityFour<Bottle>({ brand: "cocaloca", type: 3 });
+
+//Generics and Arrays
+// If I use .length it will give an error because the type may not be an array
+
+function getSearchProducts<T>(products: T[]): T {
+  //Some operations
+  const myIndex = 0;
+  return products[myIndex];
+}
+
+//With arrow functionsç
+// The comama is conventional, not neccesary but used for some devs to indicate that it is a generic type
+const getMoreSearchProducts = <T>(products: T[]): T => {
+  //Some operations
+  const myIndex = 0;
+  return products[myIndex];
+};
