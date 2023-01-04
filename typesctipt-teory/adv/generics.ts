@@ -46,3 +46,60 @@ const getMoreSearchProducts = <T>(products: T[]): T => {
   const myIndex = 0;
   return products[myIndex];
 };
+
+// Generics constraints: uing type params
+
+// In this case, the values can be different data types, but I would like them to be equal
+
+function anotherFunc<T, U>(valOne: T, valTwo: U): object {
+  return { valOne, valTwo };
+}
+
+anotherFunc(3, "4"); // This should complain!
+
+// I solve adding this
+function anotherFunc2<T, U extends T>(valOne: T, valTwo: U): object {
+  return { valOne, valTwo };
+}
+anotherFunc2("3", "4"); // Now they have to be equal!
+
+// Another example, because We can extend a different data type for each generic
+interface Database {
+  connection: string;
+  userName: string;
+  password: string;
+}
+
+function anotherFunc3<T extends string, U extends Database>(
+  valOne: T,
+  valTwo: U
+): object {
+  return { valOne, valTwo };
+}
+
+anotherFunc3("valOne", {
+  connection: "1",
+  userName: "Franz",
+  password: "1234",
+});
+
+//
+
+interface Quiz {
+  name: string;
+  type: string;
+}
+
+interface Course {
+  name: string;
+  author: string;
+  subject: string;
+}
+
+class Sellable<T> {
+  public cart: T[] = [];
+
+  addToCart(products: T) {
+    this.cart.push(products);
+  }
+}
