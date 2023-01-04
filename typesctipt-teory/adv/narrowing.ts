@@ -62,3 +62,94 @@ function accountIsAdmin(account: User | Admin) {
     return account.isAdmin;
   }
 }
+
+// Keyword instanceof, like the "in", but for classes
+
+function logValue(x: Date | string) {
+  if (x instanceof Date) {
+    console.log(x.toUTCString());
+  } else {
+    console.log(x.toUpperCase());
+  }
+}
+
+// Type predicates
+type Fish = { swim: () => void };
+type Bird = { fly: () => void };
+
+function isFish(pet: Fish | Bird) {
+  return (pet as Fish).swim !== undefined;
+}
+
+function getFood(pet: Fish | Bird) {
+  if (isFish(pet)) {
+    // If i Hover here in pet, Typescript still doesnt know if it is Bird or fish!
+    pet;
+    return "fish food";
+  } else {
+    pet;
+    return "bird food";
+  }
+}
+
+// We solve it with:
+
+function isFish2(pet: Fish | Bird): pet is Fish {
+  return (pet as Fish).swim !== undefined;
+}
+
+// Then
+function getFood2(pet: Fish | Bird) {
+  if (isFish2(pet)) {
+    // If i Hover here in pet, Typescript knows if it is Bird or fish!
+    pet;
+    return "fish food";
+  } else {
+    pet;
+    return "bird food";
+  }
+}
+
+// Discriminate Unions
+
+interface Circle {
+  // the kind keyword is used to know which kind it is the interface, and also helps vscode
+  kind: "circle";
+  radius: number;
+}
+interface Square {
+  kind: "square";
+  side: number;
+}
+interface Rectangle {
+  kind: "rectangle";
+  length: number;
+  width: number;
+}
+
+type Shape = Circle | Square;
+type Shape2 = Circle | Square | Rectangle;
+
+function getTrueShape(shape: Shape) {
+  if (shape.kind === "circle") {
+    return Math.PI * shape.radius ** 2;
+  }
+  return shape.side * shape.side;
+}
+
+// When to use type Never
+
+function getArea(shape: Shape2) {
+  switch (shape.kind) {
+    case "circle":
+      return Math.PI * shape.radius ** 2;
+    case "square":
+      return shape.side * shape.side;
+    case "rectangle":
+      return shape.length * shape.width;
+    default:
+      // Never is suposed to never be running
+      const _defaultForShape: never = shape;
+      return _defaultForShape;
+  }
+}
